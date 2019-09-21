@@ -6,7 +6,7 @@
 <?php
   echo "<div align='left'> <h1> <p> Infraestrutura e aplicação provisionados 100% via Teraform <em>{https://www.terraform.io} </h1></p></div>";
 
-  $link = mysqli_connect("terraform-20190921010836308700000001.cyuraa5fidnz.sa-east-1.rds.amazonaws.com", "sfd2019", "897*&098811qQA");
+  $link = mysqli_connect("localhost", "sfd2019", "897*&098811qQA");
  // Check connection
     if($link === false){
     die("ERROR: Nao foi possivel conectar ao RDS " . mysqli_connect_error());
@@ -15,11 +15,8 @@
     echo " <div align='left'> <h2> Sucesso ao conectar no RDS. Nome da instancia: </h2></div> ". mysqli_get_host_info($link);
 
    echo  "<div align='center'><br> <img src='sucesso.png'></div>";
+   echo  "<br><h3>Lista de banco de dados constantes no RDS</h3><br>";
 
-    $res = mysql_query("SHOW DATABASES");
-    while ($row = mysql_fetch_assoc($res)) {
-    echo $row['Database'] . "\n";
-}
 ?>
 
 
