@@ -16,8 +16,21 @@
 
    echo  "<div align='center'><br> <img src='sucesso.png'></div>";
    echo  "<br><h3>Lista de banco de dados constantes no RDS</h3><br>";
-
 ?>
+  
+<?php
+  $link = mysqli_connect("localhost", "sfd2019", "897*&098811qQA");
+  $sql="SHOW DATABASES";
+if (!($result=mysqli_query($link,$sql))) {
+        printf("Error: %s\n", mysqli_error($link));
+    }
+while( $row = mysqli_fetch_row( $result ) ){
+        if (($row[0]!="information_schema") && ($row[0]!="mysql")) {
+            echo "Database: $row[0] <br>";
+        }
+    }
+?>
+
 
 
  </body>
